@@ -1,12 +1,7 @@
-##-----------------------------
-##          Bindings
-##-----------------------------
-#Disable crtl-s freeze
+# disable crtl-s freeze
 stty stop undef
-# enter vi mode
-#bindkey -v
-# create a zkbd compatible hash;
-# to add other keys to this hash, see: man 5 terminfo
+
+# create a zkbd compatible hash. to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
 key[Home]="${terminfo[khome]}"
 key[End]="${terminfo[kend]}"
@@ -22,6 +17,7 @@ key[PageDown]="${terminfo[knp]}"
 key[Shift-Tab]="${terminfo[kcbt]}"
 key[Control-Left]="${terminfo[kLFT5]}"
 key[Control-Right]="${terminfo[kRIT5]}"
+
 # setup key accordingly
 [[ -n "${key[Home]}"            ]] && bindkey -- "${key[Home]}"             beginning-of-line
 [[ -n "${key[End]}"             ]] && bindkey -- "${key[End]}"              end-of-line
@@ -37,8 +33,8 @@ key[Control-Right]="${terminfo[kRIT5]}"
 [[ -n "${key[Shift-Tab]}"       ]] && bindkey -- "${key[Shift-Tab]}"        reverse-menu-complete
 [[ -n "${key[Control-Left]}"    ]] && bindkey -- "${key[Control-Left]}"     backward-word
 [[ -n "${key[Control-Right]}"   ]] && bindkey -- "${key[Control-Right]}"    forward-word
-# Finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
+
+# finally, make sure the terminal is in application mode, when zle is active. only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	autoload -Uz add-zle-hook-widget
 	function zle_application_mode_start { echoti smkx }
@@ -46,14 +42,17 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
-# History search
+
+# history search
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 # I used Up and Down twice. I don't know if that's right. But works.
-# Bind Crtl-D to exit shell on partial command line
+
+# bind crtl-D to exit shell on partial command line
 exit_zsh() { exit }
 zle -N exit_zsh
 bindkey '^D' exit_zsh
+

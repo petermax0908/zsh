@@ -1,0 +1,15 @@
+# better ls
+alias ls='ls -Fhv --color=auto --group-directories-first'
+
+# all v & c options list changes
+alias cp='cp -v'
+alias mv='mv -v'
+alias ln='ln -v'
+alias chmod="chmod -c"
+alias chown="chown -c"
+alias mkdir="mkdir -v"
+
+# nice colors
+alias grep='grep --colour=auto'
+alias egrep='egrep --colour=auto'
+
