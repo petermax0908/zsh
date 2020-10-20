@@ -1,2 +1,2 @@
 # load config
-source ~/.config/zsh/config.zsht
+source ~/.config/zsh/config.zsh
