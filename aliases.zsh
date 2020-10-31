@@ -13,3 +13,5 @@ alias mkdir="mkdir -v"
 alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 
+# music-dl
+alias music-dl='youtube-dl -x --audio-format mp3'
