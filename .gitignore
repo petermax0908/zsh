@@ -1,0 +1,3 @@
+# exclude everything in scripts/ and plugins/ 
+scripts/*
+plugins/*
