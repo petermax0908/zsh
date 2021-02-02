@@ -1,9 +1,10 @@
 # load all the configs
+source $HOME/.zprofile
 source $ZDOTDIR/completion.zsh
 source $ZDOTDIR/bindings.zsh
 source $ZDOTDIR/aliases.zsh
 
-# check if plugins are installed or load them
+# Check for plugins; install instrucitions; load them
 if [ ! -d "$ZDOTDIR/plugins/zsh-syntax-highlighting" ]; then
     echo " Fore syntaxhighligting execute following command in '.config/zsh/plugins' folder:"
     echo " git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git"
@@ -18,7 +19,7 @@ else
     source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 fi
 
-# use history
+# History config
 HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.cache/zsh_history
@@ -33,9 +34,4 @@ autoload colors; colors
 
 # prompt style
 PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-# if you want a different prompt. use prompt -l to see available
-#autoload -Uz promptinit
-#promptinit
-#prompt 'your choice here'
 

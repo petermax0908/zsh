@@ -1,6 +1,4 @@
-# disable crtl-s freeze
-stty stop undef
-
+# this file somehow works, even if i have no clue what actually happens behind the hood.
 # create a zkbd compatible hash. to add other keys to this hash, see: man 5 terminfo
 typeset -g -A key
 key[Home]="${terminfo[khome]}"

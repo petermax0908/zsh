@@ -1,17 +1,16 @@
-# better ls
-alias ls='ls -Fhv --color=auto --group-directories-first'
-
-# all v & c options list changes. i prompts in case of overwrite
-alias cp='cp -vi'
-alias mv='mv -vi'
-alias ln='ln -vi'
-alias chmod="chmod -c"
-alias chown="chown -c"
-alias mkdir="mkdir -v"
-
-# nice colors
+# --interactive     prompt before overwrite
+# --verbose         explain what is being done
+# --changes         like verbose but report only when a change is made
+alias cp="cp --interactive --verbose"
+alias mv="mv --interactive --verbose"
+alias rm="rm --verbose"
+alias ln='ln --interactive --verbose'
+alias chmod="chmod --changes"
+alias chown="chown --changes"
+alias mkdir="mkdir --verbose"
+# -F	append indicator (one of */=>@|) to entries
+# -v	natural sort of (version) numbers within text 
+alias ls='ls -Fv --human-readable --color=auto --group-directories-first'
 alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
+alias music-dl='youtube-dl --extract-audio --audio-format mp3'
 
-# music-dl
-alias music-dl='youtube-dl -x --audio-format mp3'
