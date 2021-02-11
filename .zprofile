@@ -16,8 +16,11 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export NPM_CONFIG_USERCONFIG="$HOME/.config/npmrc"
 # Allow to run locally installed scripts
-export PATH=$PATH":$HOME/.local/bin"
-export PATH=$PATH":$HOME/.config/zsh/scripts"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.config/zsh/scripts:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$HOME/.config/zsh/scripts:$PATH"
+fi
+export PATH
 # Colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 # Colorful man copied from github.com/sdushantha

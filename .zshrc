@@ -1,5 +1,4 @@
 # load all the configs
-source $HOME/.zprofile
 source $ZDOTDIR/completion.zsh
 source $ZDOTDIR/bindings.zsh
 source $ZDOTDIR/aliases.zsh
