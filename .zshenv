@@ -1,6 +1,7 @@
 #!/bin/zsh
 # .zshenv file. Usually runs on every zsh. 
 # Environmental variables are set here.
+export skip_global_compinit="1"
 export TMP="$HOME/.cache/tmp"
 export TEMP="$TMP"
 export TMPDIR="$TMP"

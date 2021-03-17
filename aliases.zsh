@@ -13,4 +13,5 @@ alias mkdir="mkdir --verbose"
 alias ls='ls -Fv --human-readable --color=auto --group-directories-first'
 alias grep='grep --colour=auto'
 alias music-dl='youtube-dl --extract-audio --audio-format mp3'
-
+alias glog="git log --oneline --graph --color --all --decorate"
+alias reloadzconf="source $ZDOTDIR/.zshrc"
